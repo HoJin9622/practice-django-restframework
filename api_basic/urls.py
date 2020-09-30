@@ -1,4 +1,9 @@
 from django.urls import path
-from .views import article_detail, article_list
+from .views import article_detail, article_list, ArticleAPIView, ArticleDetails
 
-urlpatterns = [path("article/", article_list), path("detail/<int:pk>/", article_detail)]
+urlpatterns = [
+    # path("article/", article_list),
+    path('article/', ArticleAPIView.as_view()),
+    # path("detail/<int:pk>/", article_detail)
+    path('detail/<int:id>/', ArticleDetails.as_view())
+]
